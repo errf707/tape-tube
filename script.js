@@ -1,7 +1,7 @@
 const videos = [
-    { id: 1, title: "React Tutorial", url: "https://via.placeholder.com/300" },
-    { id: 2, title: "JavaScript Basics", url: "https://via.placeholder.com/300" },
-    { id: 3, title: "CSS Flexbox Guide", url: "https://via.placeholder.com/300" }
+    { id: 1, title: "" },
+    { id: 2, title: "" },
+    { id: 3, title: "" }
 ];
 
 const videoList = document.getElementById("video-list");
