@@ -1,23 +1,14 @@
-const videos = [
-    { id: 1, title: "" },
-    { id: 2, title: "" },
-    { id: 3, title: "" }
-];
+// Можна додати функцію для пошуку відео
+document.querySelector('.search-bar input').addEventListener('input', function(event) {
+    let searchQuery = event.target.value.toLowerCase();
+    let videoCards = document.querySelectorAll('.video-card');
 
-const videoList = document.getElementById("video-list");
-const searchInput = document.getElementById("search");
-
-function renderVideos(filter = "") {
-    videoList.innerHTML = "";
-    videos.filter(video => video.title.toLowerCase().includes(filter.toLowerCase()))
-          .forEach(video => {
-              const div = document.createElement("div");
-              div.className = "video";
-              div.innerHTML = `<img src="${video.url}" alt="${video.title}"><h3>${video.title}</h3>`;
-              videoList.appendChild(div);
-          });
-}
-
-searchInput.addEventListener("input", (e) => renderVideos(e.target.value));
-
-renderVideos();
+    videoCards.forEach(function(card) {
+        let title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(searchQuery)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
